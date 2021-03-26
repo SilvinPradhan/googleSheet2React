@@ -10,10 +10,11 @@ export default class App extends Component {
 		super(props);
 
 		this.state = {
-			name: 'Silvin Pradhan',
+			firstName: 'Silvin',
+			lastName: 'Pradhan',
 			age: '',
-			salary: '',
-			hobby: 'N/A',
+			skills: 'N/A',
+			classification: 'Freshman',
 		};
 	}
 
@@ -29,7 +30,7 @@ export default class App extends Component {
 				console.log(res);
 			});
 			toast.success(`Your data has been saved to Google Sheets successfully`);
-			this.setState({ name: '', age: '', salary: '', hobby: '' });
+			this.setState({ firstName: '', lastName: '', age: '', skills: '', classification: '' });
 		} catch (err) {
 			console.log(err);
 			toast.dark(`Check your internet connection.`);
@@ -37,7 +38,7 @@ export default class App extends Component {
 	};
 
 	render() {
-		const { name, age, salary, hobby } = this.state;
+		const { firstName, lastName, age, skills, classification } = this.state;
 		return (
 			<>
 				<ToastContainer
@@ -53,13 +54,24 @@ export default class App extends Component {
 					<Header as="h2">React Google Sheets!</Header>
 					<Form className="form" onSubmit={this.submitHandler}>
 						<Form.Field>
-							<label>Name</label>
+							<label>First Name</label>
 							<input
-								placeholder="Enter your name"
+								placeholder="Enter your first name"
 								type="text"
-								name="name"
+								name="firstName"
 								required
-								value={name}
+								value={firstName}
+								onChange={this.changeHandler}
+							/>
+						</Form.Field>
+						<Form.Field>
+							<label>Last Name</label>
+							<input
+								placeholder="Enter your last name"
+								type="text"
+								name="lastName"
+								required
+								value={lastName}
 								onChange={this.changeHandler}
 							/>
 						</Form.Field>
@@ -69,34 +81,35 @@ export default class App extends Component {
 								placeholder="Enter your age"
 								type="number"
 								name="age"
-								required
 								value={age}
-								onChange={this.changeHandler}
-							/>
-						</Form.Field>
-						<Form.Field>
-							<label>Salary</label>
-							<input
-								placeholder="Enter your salary"
-								type="number"
-								name="salary"
-								value={salary}
 								required
 								onChange={this.changeHandler}
 							/>
 						</Form.Field>
 						<Form.Field>
-							<label>Hobby</label>
+							<label>Skills</label>
 							<input
-								placeholder="Enter your hobby"
+								placeholder="Enter your Skills"
 								type="text"
-								name="hobby"
-								value={hobby}
+								name="skills"
+								value={skills}
+								required
+								onChange={this.changeHandler}
+							/>
+						</Form.Field>
+						<Form.Field>
+							<label>Classification</label>
+							<input
+								placeholder="Enter your classification"
+								type="text"
+								name="classification"
+								value={classification}
+								required
 								onChange={this.changeHandler}
 							/>
 						</Form.Field>
 
-						<Button color="blue" type="submit">
+						<Button color="green" type="submit">
 							Submit
 						</Button>
 					</Form>
