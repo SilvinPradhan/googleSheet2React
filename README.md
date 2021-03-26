@@ -15,6 +15,6 @@
 
 ## Demo
 
-<img src="images/demo.PNG" width="100">
+<img src="images/demo.PNG" width="500">
 
 <hr/>
