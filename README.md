@@ -15,4 +15,4 @@
 
 ## Demo
 
-![](public/demo.png)
+![](images/demo.PNG)
