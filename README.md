@@ -15,4 +15,6 @@
 
 ## Demo
 
-![](images/demo.PNG)
+<img src="images/demo.PNG" width="100">
+
+<hr/>
